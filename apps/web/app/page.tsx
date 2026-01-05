@@ -10,6 +10,11 @@ import { SignInButton, UserButton } from "@clerk/nextjs"
 import { api } from "@workspace/backend/_generated/api"
 import { Button } from "@workspace/ui/components/button"
 
+/**
+ * Render the page with authenticated user controls and an unauthenticated sign-in fallback.
+ *
+ * @returns A React element that displays an authenticated view containing a user button, an "Add" action, and a JSON listing of users, and an unauthenticated view that prompts the user to sign in.
+ */
 export default function Page() {
 	const users = useQuery(api.users.getMany)
 	const addUser = useMutation(api.users.add)
