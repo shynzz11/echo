@@ -14,6 +14,12 @@ const fontMono = Geist_Mono({
 	variable: "--font-mono",
 })
 
+/**
+ * Render the application's HTML root with global font variables, authentication, and context providers.
+ *
+ * @param children - The page content to render inside the Providers and Clerk authentication context.
+ * @returns The top-level `<html>` element containing the `<body>` with fonts applied and children nested inside `ClerkProvider` and `Providers`.
+ */
 export default function RootLayout({
 	children,
 }: Readonly<{
