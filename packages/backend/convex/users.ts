@@ -29,6 +29,8 @@ export const add = mutation({
 			)
 		}
 
+		throw new Error("Tracking test")
+
 		// Insert a new user into the database
 		const userId = await ctx.db.insert("users", {
 			name: "New User",
