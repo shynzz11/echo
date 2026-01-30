@@ -13,9 +13,15 @@ export const useVapi = () => {
 	const [isSpeaking, setIsSpeaking] = useState(false)
 	const [transcript, setTranscript] = useState<TranscriptMessage[]>([])
 
+	const vapiKey = process.env.NEXT_PUBLIC_VAPI_KEY
+	const vapiAssistantId = process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID
+
 	useEffect(() => {
 		//only for testing the vapi api, otherwise customers will provide their own key
-		const vapiInstance = new Vapi("a8ed25e5-f7d8-4b6d-aebb-fa81720d84ef")
+		if (!vapiKey) {
+			throw new Error("VAPI key is not defined in environment variables")
+		}
+		const vapiInstance = new Vapi(vapiKey)
 		setVapi(vapiInstance)
 
 		vapiInstance.on("call-start", () => {
@@ -66,8 +72,16 @@ export const useVapi = () => {
 	const startCall = () => {
 		setIsConnecting(true)
 
+		if (!vapiAssistantId) {
+			console.error(
+				"VAPI assistant ID is not defined in environment variables.",
+			)
+			setIsConnecting(false)
+			return
+		}
+
 		if (vapi) {
-			vapi.start("e96c785d-325a-45ee-b21e-63060dba47df") //demo bot
+			vapi.start(vapiAssistantId) //demo bot
 		}
 	}
 
