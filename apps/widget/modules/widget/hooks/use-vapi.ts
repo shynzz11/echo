@@ -19,7 +19,8 @@ export const useVapi = () => {
 	useEffect(() => {
 		//only for testing the vapi api, otherwise customers will provide their own key
 		if (!vapiKey) {
-			throw new Error("VAPI key is not defined in environment variables")
+			console.error("VAPI key is not defined in environment variables")
+			return
 		}
 		const vapiInstance = new Vapi(vapiKey)
 		setVapi(vapiInstance)
