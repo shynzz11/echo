@@ -13,8 +13,8 @@ import { Button } from "@workspace/ui/components/button"
 import { WidgetHeader } from "@/modules/widget/ui/components/widget-header"
 import { useMutation } from "convex/react"
 import { api } from "@workspace/backend/_generated/api"
-import { userAgent } from "next/server"
-import { platform } from "os"
+// import { userAgent } from "next/server"
+// import { platform } from "os"
 import { Doc } from "@workspace/backend/_generated/dataModel"
 
 const formSchema = z.object({
