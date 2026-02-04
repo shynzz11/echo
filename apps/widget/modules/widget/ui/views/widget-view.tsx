@@ -5,17 +5,19 @@ import { screenAtom } from "@/modules/widget/atoms/widget-atoms"
 // import { WidgetHeader } from "../components/widget-header"
 import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen"
 import { useAtomValue } from "jotai"
+import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen"
+import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen"
 
 interface Props {
-	organizationId: string
+	organizationId: string | null
 }
 
 export const WidgetView = ({ organizationId }: Props) => {
 	const screen = useAtomValue(screenAtom)
 
 	const screenComponents = {
-		error: <p>Error screen</p>,
-		loading: <p>Loading screen</p>,
+		error: <WidgetErrorScreen />,
+		loading: <WidgetLoadingScreen organizationId={organizationId} />,
 		auth: <WidgetAuthScreen />,
 		voice: <p>Voice screen</p>,
 		inbox: <p>Inbox screen</p>,
