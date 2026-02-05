@@ -7,6 +7,8 @@ import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen
 import { useAtomValue } from "jotai"
 import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen"
 import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen"
+import { WidgetSelectionScreen } from "@/modules/widget/ui/screens/widget-selection-screen"
+import { WidgetChatScreen } from "@/modules/widget/ui/screens/widget-chat-screen"
 
 interface Props {
 	organizationId: string | null
@@ -21,8 +23,8 @@ export const WidgetView = ({ organizationId }: Props) => {
 		auth: <WidgetAuthScreen />,
 		voice: <p>Voice screen</p>,
 		inbox: <p>Inbox screen</p>,
-		selection: <p>Selection screen</p>,
-		chat: <p>Chat screen</p>,
+		selection: <WidgetSelectionScreen />,
+		chat: <WidgetChatScreen />,
 		contact: <p>Contact screen</p>,
 	}
 
