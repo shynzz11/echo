@@ -107,7 +107,7 @@ export const ConversationsPanel = () => {
 				<ScrollArea className="max-h-[calc(100vh-53px)]">
 					<div className="flex w-full flex-1 flex-col text-sm">
 						{conversations.results.map((conversation) => {
-							const islastMessageFromOperator =
+							const isLastMessageFromOperator =
 								conversation.lastMessage?.message?.role !== "user"
 
 							const country = getCountryFromTimezone(
@@ -153,13 +153,13 @@ export const ConversationsPanel = () => {
 										</div>
 										<div className="mt-1 flex items-center justify-between gap-2">
 											<div className="flex w-0 grow items-center gap-1">
-												{islastMessageFromOperator && (
+												{isLastMessageFromOperator && (
 													<CornerUpLeftIcon className="size-3 shrink-0 text-muted-foreground" />
 												)}
 												<span
 													className={cn(
 														"line-clamp-1 text-muted-foreground text-xs",
-														!islastMessageFromOperator &&
+														!isLastMessageFromOperator &&
 															"font-bold text-black",
 													)}
 												>
