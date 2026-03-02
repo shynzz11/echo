@@ -23,7 +23,7 @@ import { useState } from "react"
 interface UploadDialogProps {
 	open: boolean
 	onOpenChange: (open: boolean) => void
-	onFileUploaded: () => void
+	onFileUploaded?: () => void
 }
 
 export const UploadDialog = ({
@@ -90,7 +90,7 @@ export const UploadDialog = ({
 				<DialogHeader>
 					<DialogTitle>Upload Document</DialogTitle>
 					<DialogDescription>
-						Upload documennts to your knowledge base for AI-powered search and
+						Upload documents to your knowledge base for AI-powered search and
 						retrieval
 					</DialogDescription>
 				</DialogHeader>
