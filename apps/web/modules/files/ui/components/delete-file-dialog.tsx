@@ -51,7 +51,7 @@ export const DeleteFileDialog = ({
 				<DialogHeader>
 					<DialogTitle>Delete File</DialogTitle>
 					<DialogDescription>
-						Are you sure you want to delete this file?This action cannot be
+						Are you sure you want to delete this file? This action cannot be
 						undone.
 					</DialogDescription>
 				</DialogHeader>
